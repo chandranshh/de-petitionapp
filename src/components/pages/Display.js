@@ -12,8 +12,8 @@ export default function Display({title,content,signature}) {
         <div className='text-black mx-[20%] mt-[50px] flex flex-col space-y-8 bg-white rounded-md' >
         <img src="/images/test.jpg" alt="" className='h-[150px] rounded-t-md object-cover'/>    
         <div className="p-10 pt-0">
-            <h3 className='text-3xl font-extrabold mb-2'> {title}</h3>
-            <p className='mb-3'>{content}</p>
+            <h3 className='text-3xl font-extrabold mb-2'> {title} sadasdadas</h3>
+            <p className='mb-3'>{content}dasdasdasdas</p>
         
             <div className="flex justify-between mt-5 mb-4">
             <Button variant="contained" 

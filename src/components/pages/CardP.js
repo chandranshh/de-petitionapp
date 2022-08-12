@@ -4,10 +4,10 @@ import ProgressBar from '../ProgressBar';
 function ReadMore({content,link ='#'}){
   const newText = content.slice(0,200);
   return(
-    <>
+    <p>
     {newText}
     <Link to= {link} className ='text-red-500 hover:text-red-900'>...Read More</Link>
-    </>
+    </p>
   )
 }
 export default function CardP({id,title,content,signature}) {
@@ -17,7 +17,7 @@ export default function CardP({id,title,content,signature}) {
     <div className='flex-col p-3'>
       <h3 className='text-3xl font-extrabold mb-2'> {title}</h3>
       <ReadMore content ={content} link='/display'/>
-    <ProgressBar number= {signature}/>
+      <ProgressBar number= {signature}/>
     </div>
     </div>
   )

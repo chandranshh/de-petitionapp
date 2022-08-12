@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../Navbar';
 import Button from '@mui/material/Button';
 import {  useNavigate } from 'react-router-dom';
-import { getAccount,connectWallet } from '../utils/Wallet';
+import { getAccount,connectWallet } from '../../utils/wallet';
 
 export default function Home() {
   const [account, setAccount] = useState("");

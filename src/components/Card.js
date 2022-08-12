@@ -1,6 +1,6 @@
 import React from 'react'
 function ReadMore({content,link ='#'}){
-  const newText = content.slice(0,200);
+  const newText = content.slice(0,10);
   return(
     <>
     {newText}

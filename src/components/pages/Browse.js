@@ -9,7 +9,7 @@ export default function Browse() {
   return (
     <>
     <Navbar/>
-    <div>
+    <div className=''>
       <h3 className='text-5xl font-extrabold mt-4 text-white text-center'> Browse Other Petitons </h3>
       <div className='grid justify-items-center'>
       {petitions.map((data,id)=>{

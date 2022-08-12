@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import {BsWallet} from 'react-icons/bs';
-import { Link,useNavigate } from 'react-router-dom';  
-import {getAccount, connectWallet} from './utils/Wallet'; 
+import { Link} from 'react-router-dom';  
+import {getAccount, connectWallet} from '../utils/wallet'; 
 
 
 export default function Navbar() {
@@ -25,7 +25,7 @@ export default function Navbar() {
     <>
     <div className='sticky top-0 gap-[10rem] flex flex-row shadow-md space-x-12 bg-zinc-900 text-white w-[100%] h-[50px] justify-between px-5 items-center '>
       
-      <Link to="index.html" className='nav-items'>Name</Link>
+      <Link to="/" className='nav-items'>Disrupt</Link>
 
       <div className='flex justify-items-start space-x-10'>
         <Link to="/" className='nav-items'>Home</Link>
