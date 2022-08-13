@@ -1,11 +1,27 @@
-import React from 'react'
-import Navbar from '../Navbar'
-import CardP from './CardP'
+import React, { useEffect, useState } from 'react';
+import Navbar from '../Navbar';
+import CardP from './CardP';
+import { fetchStorage } from '../../utils/tzkt';
 
-export default function Browse() {
-  const petitions = [{title: "Title",content: "Content",signatures: "30"},
-  {title: "Title",content: "ContentLorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente voluptatem esse pariatur vero praesentium aliquam similique labore exercitationem illum suscipit? Ex quasi quae quaerat rerum fuga quibusdam tenetur nobis eveniet ut, recusandae distinctio perspiciatis, laboriosam quisquam itaque eos laudantium dolorum, ratione ipsa. Omnis, debitis! Nulla facilis repudiandae impedit ea inventore?",signatures: "30"},
-  {title: "Title",content: "Content",signatures: "30"}];
+export default function MyPetitions({account}) {
+  const [petitions,setPetitions] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const data= await fetchStorage();
+      const test = []
+      Object.values(data).forEach((petition)=> {        
+        if(petition.hash === account){
+          test.push({'title': petition.title, 'content': petition.content,'signatures': petition.signature})
+        }
+      })
+      setPetitions(test)
+    })();
+  }, []);
+
+  
+
+  
   return (
     <>
     <Navbar/>

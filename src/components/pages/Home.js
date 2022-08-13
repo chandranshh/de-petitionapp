@@ -23,7 +23,7 @@ export default function Home() {
 
   let navigate = useNavigate();
   const routeChange = () =>{ 
-    let path = `\petition`; 
+    let path = '\petition'; 
     navigate(path);
   }
 

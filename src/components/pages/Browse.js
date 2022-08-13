@@ -1,11 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { fetchStorage } from '../../utils/tzkt';
 import Navbar from '../Navbar'
 import CardP from './CardP'
 
 export default function Browse() {
-  const petitions = [{title: "Title",content: "Content",signatures: "30"},
-  {title: "Title",content: "Content",signatures: "30"},
-  {title: "Title",content: "Content",signatures: "30"}];
+  const [petitions,setPetitions] = useState([]);
+
+  useEffect(() => {
+    
+    (async () => {
+      const data= await fetchStorage();
+      const test = []
+      Object.values(data).forEach((petition)=> {
+        test.push({'title': petition.title, 'content': petition.content,'signatures': petition.signature, 'number':petition.key})
+      })
+      setPetitions(test)
+    })();
+  }, []);
   return (
     <>
     <Navbar/>
@@ -14,7 +25,7 @@ export default function Browse() {
       <div className='grid justify-items-center'>
       {petitions.map((data,id)=>{
           return(
-            <CardP id = {id} title={data.title} content = {data.content} signature = {data.signatures}/>
+            <CardP id = {id} title={data.title} content = {data.content} signature = {data.signatures} number= {data.number}/>
           )
         })}
       </div>

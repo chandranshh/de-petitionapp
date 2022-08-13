@@ -1,19 +1,20 @@
 import React from 'react';
 import Navbar from '../Navbar';
-
+import {onSign} from '../../App'
 import Button from '@mui/material/Button';
 import {BiShare} from 'react-icons/bi';
 import ProgressBar from '../ProgressBar';
+import { useLocation } from "react-router-dom";
 
-export default function Display({title,content,signature}) {
+export default function Display() {
+  const location = useLocation();
   return (
     <>
         <Navbar/>
-        <div className='text-black mx-[20%] mt-[50px] flex flex-col space-y-8 bg-white rounded-md' >
-        <img src="/images/test.jpg" alt="" className='h-[150px] rounded-t-md object-cover'/>    
+        <div className='text-black mx-[20%] mt-[50px] flex flex-col space-y-8 bg-white rounded-md pt-4' >  
         <div className="p-10 pt-0">
-            <h3 className='text-3xl font-extrabold mb-2'> {title} sadasdadas</h3>
-            <p className='mb-3'>{content}dasdasdasdas</p>
+            <h3 className='text-3xl font-extrabold mb-2'> {location.state.title}</h3>
+            <p className='mb-3'>{location.state.content}</p>
         
             <div className="flex justify-between mt-5 mb-4">
             <Button variant="contained" 
@@ -24,7 +25,11 @@ export default function Display({title,content,signature}) {
             padding: "9px 18px",
             fontSize: "15px",
             color: "#FFFFFF",
-            fontWeight: "bolder",}}  
+            fontWeight: "bolder",}}
+            
+            onClick = {()=>{
+              onSign(location.state.number)
+            }}
             >
         Sign this Petiton</Button>
         <Button variant="contained" 
@@ -41,7 +46,7 @@ export default function Display({title,content,signature}) {
               <BiShare className='mr-2 '/>
             Share Link</Button>   
             </div>
-            <ProgressBar number = {signature} />
+            <ProgressBar number = {location.state.signature} />
             
         </div>
         </div>

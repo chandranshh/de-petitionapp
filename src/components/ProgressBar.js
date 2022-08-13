@@ -17,7 +17,6 @@ export default function ProgressBar({number}) {
         justifyContent: 'flex-start',
         borderRadius: '100px',
         alignItems: 'center',
-        position: 'relative',
         display: 'flex',
         height: '10px',
     }
@@ -28,13 +27,13 @@ export default function ProgressBar({number}) {
             borderRadius: '100px',
             background: '#ECB365',
             height: '30px',
-            width: `${number}%`,
+            width: `${number/250*100}%`,
 
         }}></div>
         
     </div>
     <div className='flex justify-between'>
-    <div className='w-[50]'>
+    <div className='w-[200px]'>
       <span className='font-bold'>{number}</span> people have already signed
     </div>
     <div>
